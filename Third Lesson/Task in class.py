@@ -3,8 +3,8 @@ import matplotlib.pyplot as plt
 from scipy import signal as sgn
 
 N = 1024
-w1 = 300
-w2 = 400
+w1 = 300  # чистый сигнал
+w2 = 400  # шум
 arg = np.arange(N)/N
 S1 = np.sin(2*np.pi*w1*arg)
 S2 = np.sin(2*np.pi*w2*arg)
@@ -22,6 +22,6 @@ u, v = sgn.freqz(B, 1) # Рисует фильтр
 # plt.plot(u, abs(v))
 # print(B)
 Z = sgn.lfilter(B, A, Y)
-plt.plot(S2[:50])
+plt.plot(S1[:50])
 plt.plot(Z[:50])
 plt.show()
